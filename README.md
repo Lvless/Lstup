@@ -1,4 +1,4 @@
-# Lstup
+# Lstup : Loi sur les stupéfiants (LStup): Infractions de consommation par substances et répartition des substances consommées 2018 et 2019
 
 Projet pour le cours de visualisation des données 2020:
 
