@@ -1,4 +1,4 @@
-// config visualisation
+// variables config pour la visualisation
 
 const height = 200;
 const width = 600;
@@ -7,7 +7,31 @@ const color = 'steelblue';
 
 
 // Données CVS
-Const LStup = [ ]
+const lstup = d3.csv("datdata/DATA_LSTUP2009-2019_v2(3col).csv", function(data){
+    console.log(data)
 
 
 // Canevas SVG
+const svg = d3.select('body')
+            .append('svg')
+            .attr('width', width)
+            .attr('height', height)
+            .attr('style', 'font: 10x sans-serif')
+
+const x = d3.scaleLinear()
+            .domain([0, d3.max(lstup, d=> d.count)])
+
+const y = d3.scaleBand()
+            .domain(lstup.map(d=> d.name))
+            .range([margin.top, height - margin.bottom])
+            
+svg.append('g')
+    .style('fill', color)
+    .selectAll('rect')
+    .data(lstup)
+    .enter()
+    .append('rect')
+    .attr('width', width)
+    .attr('height', 20)
+    .attr('x', 0)
+    .attr('y', 0)
