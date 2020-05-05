@@ -13,10 +13,26 @@
     <h2> Chiffres des infractions par substance consommée par année, de 2009 à 2019</h2>
     <a href="https://www.bfs.admin.ch/bfs/fr/home.assetdetail.11147626.html">Source: OFS </a>
 
-    <div class="main"></div>
+    <!-- Buttons pour changer date -->
+    <button onclick="changerdate('date_2009')"> 2009 </button>
+    <button onclick="changerdate('date_2010')"> 2010 </button>
+    <button onclick="changerdate('date_2011')"> 2011 </button>
+    <button onclick="changerdate('date_2012')"> 2012 </button>
+    <button onclick="changerdate('date_2013')"> 2013 </button>
+    <button onclick="changerdate('date_2014')"> 2014 </button>
+    <button onclick="changerdate('date_2015')"> 2015 </button>
+    <button onclick="changerdate('date_2016')"> 2016 </button>
+    <button onclick="changerdate('date_2017')"> 2017 </button>
+    <button onclick="changerdate('date_2018')"> 2018 </button>
+    <button onclick="changerdate('date_2019')"> 2019 </button>
 
+    <!-- place du graphique-->
+    <div id="main"></div>
+
+    <!-- D3-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
+    <!-- Script-->
     <script src="scripts/main.js"></script>
 
 </body>
