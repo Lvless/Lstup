@@ -7,8 +7,14 @@ const color = 'steelblue';
 
 
 // Données CVS
-const lstup = d3.csv("datdata/DATA_LSTUP2009-2019_v2(3col).csv", function(data){
-    console.log(data)
+
+const lstup = d3.csv("data/DATA_LSTUP2009-2019_v2(3col).csv", function(d) {
+    return {
+        date: d.data,
+        substance: d.substance,
+        nombre_infr: parsefloat(d.valeur)
+    };
+  })
 
 
 // Canevas SVG
