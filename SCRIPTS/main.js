@@ -8,7 +8,7 @@ const color = 'steelblue';
 
 // Données CVS
 
-const lstup = d3.csv("data/DATA_LSTUP2009-2019_v2(3col).csv", function(d) {
+const lstup = d3.csv("data/DATA_LSTUP2009-2019(3col).csv", function(d) {
     return {
         date: d.data,
         substance: d.substance,
@@ -18,7 +18,7 @@ const lstup = d3.csv("data/DATA_LSTUP2009-2019_v2(3col).csv", function(d) {
 
 
 // Canevas SVG
-const svg = d3.select('body')
+const svg = d3.select('#maViz')
             .append('svg')
             .attr('width', width)
             .attr('height', height)
