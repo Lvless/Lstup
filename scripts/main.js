@@ -1,3 +1,6 @@
+
+//Sera le script principal quand j'aurai trouvé la bonne manière de le présenter
+
 // variables config pour la visualisation
 
 const height = 200;
@@ -8,7 +11,7 @@ const color = 'steelblue';
 
 // Données CVS
 
-const lstup = d3.csv("data/DATA_LSTUP2009-2019(3col).csv", function(d) {
+const lstup = d3.csv("data/DATA_LSTUP09-19_TOP15.csv", function(d) {
     return {
         date: d.data,
         substance: d.substance,
