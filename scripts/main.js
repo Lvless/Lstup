@@ -5,6 +5,7 @@
 //          ESSAI DE FAIRE UN BARPLOT SIMPLE ET QUE CA UTILISE MES DONNEES 
 //          -> TJ PAS REUSSI !! CA NE VEUT PAS UTILISER MON CSV... PK ?!
 // 08/5 :----> Ajouter [data].map a aidé pour utiliser les données, mais mnt faut les presenter juste
+// 12/05 : données ajoutées, mais elles se superposent -> reregarder  vidéo prof sur CSV 
 // -------------------------
 // 
 
@@ -19,7 +20,7 @@ const color = '#a269b3'; // couleur violet
 /////////////////////////////////////////////////////////
 
 // Canevas SVG + ajout dans le "body" de la page HTML
-const svg = d3.select("#maViz") // nom de ma visualisation sur index
+const svg = d3.select("#maViz") // nom de ma visualisation sur index.html
               .append("svg")
                 .attr("width", width + margin.left + margin.right)
                 .attr("height", height + margin.top + margin.bottom)
@@ -29,11 +30,12 @@ const svg = d3.select("#maViz") // nom de ma visualisation sur index
 /////////////////////////////////////////////////////////
 
 // Données
-const data = d3.csv("data/DATA_LSTUP09V2.csv", function(data){
-//  return {
-//    substance: d.substance,
-//    valeur: parsefloat(d.valeur)};
-//}).then(function(data){
+const data = d3.csv("data/DATA_LSTUP09V2.csv", function(d){
+  return {
+    substance: d.substance,
+    valeur: parseFloat(d.valeur)
+  }
+}).then(function(data){
 /////////////////////////////////////////////////////////
 
 
