@@ -36,6 +36,7 @@ const data = d3.csv("data/DATA_LSTUP09V2.csv", function(d){
     valeur: parseFloat(d.valeur)
   }
 }).then(function(data){
+  console.log(data);
 /////////////////////////////////////////////////////////
 
 
@@ -59,7 +60,7 @@ const x = d3.scaleBand() //échelle ordinnale à bandes
 
 // ECHELLE Y "|" : valeurs ---------------------------
 const y = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d.valeur)])
+            .domain([0, d3.max(data, d => d.valeur)]) // max valeur selon doc csv
             .range([ height, 0 ]) // intervale de sortie de l'échelle
 
   // placement valeurs sur axe y
@@ -77,7 +78,7 @@ svg.append('g')
 	Barres = svg.append('g');
 	Titres = svg.append('g')
               .style('fill', 'black')
-              .attr("transform", "translate(-10,0)", "rotate(-45)")
+              .attr("transform", "translate(-10,0)", "rotate(-45)") // rotation du texte
               .style("text-anchor", "end")
 
 
@@ -85,11 +86,11 @@ svg.append('g')
 Barres.selectAll('rect')
       .data(data)
       .join('rect')
-      .attr('width', x.bandwidth())
-      .attr("height", d => y(d.valeur) - height )
-      .attr("x", d => x(d.substance))
-      .attr("y", d => y(d.valeur))
-      .attr("fill", color)
+        .attr('width', x.bandwidth())
+        .attr("height", d => y(0) - y(d.valeur) ) // hauteur des barres
+        .attr("x", d => x(d.substance))
+        .attr("y", d => y(d.valeur))
+        .attr("fill", color)
 
 	// Titres
 Titres.selectAll('text')
