@@ -23,3 +23,9 @@ Avril : Recherche idées
 11.05 : recherche bonne forme pour le graph
 
 12.05 : Difficulté bonne présentation données-> choix de selection certaines substances et leur évolution  de 2009 -2019
+
+15.05 : Essai avec vidéos du prof
+
+17.05 : pas encore résolu
+
+19.05 : continuer

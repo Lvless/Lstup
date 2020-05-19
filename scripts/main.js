@@ -1,5 +1,5 @@
 //-------LOG:
-//Script ESSAI graphique SIMPLE
+//Script graphique SIMPLE
 // 06/5 : pas encore trouvé comment afficher graph avec mes données -> bug avec la partie données,
 // 07/5 :  ABANDON TRUC CIRCULAIRE POUR LE MOMENT : 
 //          ESSAI DE FAIRE UN BARPLOT SIMPLE ET QUE CA UTILISE MES DONNEES 
@@ -7,11 +7,25 @@
 // 08/5 :----> Ajouter [data].map a aidé pour utiliser les données, mais mnt faut les presenter juste
 // 12/05 : données ajoutées, mais elles se superposent -> reregarder  vidéo prof sur CSV 
 // -------------------------
-// 
+//17/05 : Trouver si vaut mieux utiliser script avec csv par csv (2009 ,2010 etc)ou un fichier avec tout (2009-2019) 
+//        et consequence du onclick des buttons: lancer chaque fois un nouvel script avec le click ( ex: onclick 2009 -> script affiche graphique 2009) ou un script qui prevoit tout??
+//19/05 : PROBLEME : Données se placent du côté gauche et slm une barre est affichée -> peut être plus joli si affiché horizontalement ?
+// ->ex :
+//  ___________   _____________
+// |ANNEE 2009|   |Année 2010 |     etc
+//  ----------    -------------
+//
+//  subs1 |-------------
+//  subs2 |-----
+//  subs3 |----------------
+//  subs4 |------------
+//   ...  |_____________________
+
+//_____________________________________________________________________________ 
 
 
 // Dimensions et marges du graph
-const margin = {top: 30, right: 30, bottom: 70, left: 60}; // marger
+const margin = {top: 30, right: 30, bottom: 70, left: 60}; // marge
 const width = 460 - margin.left - margin.right; // largeur
 const height = 400 - margin.top - margin.bottom; // hauteur
 const color = '#a269b3'; // couleur violet
@@ -78,7 +92,7 @@ svg.append('g')
 	Barres = svg.append('g');
 	Titres = svg.append('g')
               .style('fill', 'black')
-              .attr("transform", "translate(-10,0)", "rotate(-45)") // rotation du texte
+              .attr("transform", "translate(-10,0)", "rotate(-45)") // rotation du texte, fonctionne pas..
               .style("text-anchor", "end")
 
 

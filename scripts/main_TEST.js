@@ -1,5 +1,5 @@
 
-//Sera le script principal quand j'aurai trouvé la bonne manière de le présenter
+//Script test avec tutos
 
 // variables config pour la visualisation
 
