@@ -28,4 +28,12 @@ Avril : Recherche idées
 
 17.05 : pas encore résolu
 
-19.05 : continuer
+19.05 : regarder new tutos prof + essayer de comprendre comment utiliser données
+
+23.05 : comprendre fonctionnement bouton + voir si possible d'afficher le "total" en haut ( pas dans graphique)
+
+24.05 : Pas fini, continuer + regarder example fini prof
+
+25.05 : PAs fini , continuer + Regarder correction prof ( -> script main ) 
+
+26.05 - 30.05 : Comprendre fonctionnement bouton + choix utilisation csv ( 1 csv avec tout ou 1 csv par année)
