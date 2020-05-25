@@ -1,4 +1,9 @@
+
+P{ text-align: center }
+h1{ text-align: center }
+
 body {
+    text-align: center;
     margin: len;
     font-family:Verdana, Tahoma, sans-serif;
 

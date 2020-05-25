@@ -10,30 +10,28 @@
 //17/05 : Trouver si vaut mieux utiliser script avec csv par csv (2009 ,2010 etc)ou un fichier avec tout (2009-2019) 
 //        et consequence du onclick des buttons: lancer chaque fois un nouvel script avec le click ( ex: onclick 2009 -> script affiche graphique 2009) ou un script qui prevoit tout??
 //19/05 : PROBLEME : Données se placent du côté gauche et slm une barre est affichée -> peut être plus joli si affiché horizontalement ?
-// ->ex :
-//  ___________   _____________
-// |ANNEE 2009|   |Année 2010 |     etc
-//  ----------    -------------
-//
-//  subs1 |-------------
-//  subs2 |-----
-//  subs3 |----------------
-//  subs4 |------------
-//   ...  |_____________________
-
+//23/05 : comprendre fonctionnement bouton
+//24/05 : comprendre fonctionnement bouton
+//25/05 : Regarder correction prof ( -> script main ) + comprendre 
+// -> Mon erreur: pas separation en barre, tout se superposait
 //_____________________________________________________________________________ 
+//_____________________________________________________________________________
 
 
 // Dimensions et marges du graph
-const margin = {top: 30, right: 30, bottom: 70, left: 60}; // marge
-const width = 460 - margin.left - margin.right; // largeur
-const height = 400 - margin.top - margin.bottom; // hauteur
-const color = '#a269b3'; // couleur violet
+const margin = {top: 40, right: 20, bottom: 100, left: 100}; // marge
+const width = 760 - margin.left - margin.right; // largeur
+const height = 500 - margin.top - margin.bottom; // hauteur
+const color = '#9DC209'; // couleur pistache
+
+  //permet d'acceder aux valeurs plus facilement:
+const xSubst = d => d.substance 
+const yValeur = d => d.valeur
 
 
-/////////////////////////////////////////////////////////
 
-// Canevas SVG + ajout dans le "body" de la page HTML
+///////////////////////////////////////////////////////////////
+// CANEVAS SVG + ajout dans le "body" de la page HTML
 const svg = d3.select("#maViz") // nom de ma visualisation sur index.html
               .append("svg")
                 .attr("width", width + margin.left + margin.right)
@@ -41,23 +39,24 @@ const svg = d3.select("#maViz") // nom de ma visualisation sur index.html
               .append("g")
                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-/////////////////////////////////////////////////////////
 
-// Données
-const data = d3.csv("data/DATA_LSTUP09V2.csv", function(d){
+///////////////////////////////////////////////////////////////
+// DONNEES
+const data = d3.csv("data/DATA_LSTUP09V2.csv", function(d){ // PROMISE de données -> .then
   return {
     substance: d.substance,
-    valeur: parseFloat(d.valeur)
+    valeur: parseFloat(d.valeur) // "valeur" passée de string à float (nombre)
   }
 }).then(function(data){
   console.log(data);
-/////////////////////////////////////////////////////////
 
 
+
+///////////////////////////////////////////////////////////////
 // ECHELLE X "-" : substances ---------------------------
-const x = d3.scaleBand() //échelle ordinnale à bandes
-            .domain([data].map(d => d.substance)) // données -> prendre substance en x, array donc [] 
-            .range([ 0, width ])
+const x = d3.scaleBand() //échelle ordinnale à bandes 
+            .domain(data.map(xSubst))  
+            .range([0, width - margin.right]) // cela permet d'arranger les substances dans la largeur (-marge à droite)
             .padding(0.1) //marge entre les barres
             .round(true)
 
@@ -66,61 +65,101 @@ const x = d3.scaleBand() //échelle ordinnale à bandes
       .attr("transform", "translate(0," + height + ")")
       .call(d3.axisBottom(x)) //placement axe X ici avec methode "call"
 
-  
+      .selectAll("text")
+      .attr("y", 9)
+      .attr("x", 9)
+      .attr("dy", ".35em")
+      .attr("transform", "rotate(45)")
+      .style("text-anchor", "start")
 
 
-
-///////////////////////////////////////////////////////
-
-// ECHELLE Y "|" : valeurs ---------------------------
+///////////////////////////////////////////////////////////////
+// ECHELLE verticale Y ("|") : valeurs ---------------------------
 const y = d3.scaleLinear()
-            .domain([0, d3.max(data, d => d.valeur)]) // max valeur selon doc csv
-            .range([ height, 0 ]) // intervale de sortie de l'échelle
+            .domain([0, d3.max(data, yValeur)]) // max valeur selon doc csv
+            .range([ height, 0 ]) // intervale de sortie de l'échelle. Le min c'est la hauteur, le max c'est 0, car vertical
 
   // placement valeurs sur axe y
 
-
   //placement axe Y
-svg.append('g')  
-    .attr('tranform', `translate(0, ${margin.left}, 0)`)
-    .call(d3.axisLeft(y))
+  svg.append('g')  
+      .attr('tranform', `translate(0, ${margin.left}, 0)`)
+      .call(d3.axisLeft(y))
 
 
-/////////////////////////////////////////////////////
-
-	// Création de groupes SVG pour les barres et titres du graphique
-	Barres = svg.append('g');
-	Titres = svg.append('g')
+///////////////////////////////////////////////////////////////
+// Création de groupes SVG pour les barres et titres du graphique
+Barres = svg.append('g');
+Titres = svg.append('g')
               .style('fill', 'black')
-              .attr("transform", "translate(-10,0)", "rotate(-45)") // rotation du texte, fonctionne pas..
-              .style("text-anchor", "end")
+              .style("text-anchor", "start")
 
 
-// Barres--------------------------
-Barres.selectAll('rect')
-      .data(data)
-      .join('rect')
-        .attr('width', x.bandwidth())
-        .attr("height", d => y(0) - y(d.valeur) ) // hauteur des barres
-        .attr("x", d => x(d.substance))
-        .attr("y", d => y(d.valeur))
+///////////////////////////////////////////////////////////////
+// Création des rectangles DOM, séparation en barres en fonction des données--------------------------
+Barres.selectAll('rect') //selectionne tous les rectangles DOM
+      .data(data) // ajout des données
+      .join('rect') //il faut fixer la taille des rectangles/barres
+        .attr('width', x.bandwidth()) // largeur des barres suivant echelle X
+        .attr("height", d => y(0) - y(yValeur(d)) ) // hauteur des barres suivant echelle y
+        .attr("x", d => x(xSubst(d))) // création des barres en fonction de la substance
+        .attr("y", d => y(yValeur(d)))
         .attr("fill", color)
 
-	// Titres
+
+///////////////////////////////////////////////////////////////
+// Titres
 Titres.selectAll('text')
 	    .data(data)
       .join('text')
 
-			.attr('dy', '0.35em')
-			.attr('x', d => x(d.substance))
-			.attr('y', d => y(d.valeur))
-			.text(d => d.substance);
-
-////////////////////////////////////////////////////
+      .attr('dy', '0.35em')
+      .attr('dx', `${x.bandwidth() / 2}`)
+      .attr('x', d => x(xSubst(d))) // affiche les valeurs au dessus des barres
+      .attr('y', d => y(yValeur(d))) // affiche les valeurs au dessus des barres
+      .style('font-size', '12px')
+      .text(yValeur)
+      .attr('transform', d => `rotate(-45 ${x(d.substance)} ${y(d.valeur)})`) // rotation du texte ici
 
 })
 
 
 
+//////////////////////////////////WIP/////////////////////////////////////////////////////////////
+//LOAD ONClick BUTTON FUNCTION : en cours -> pas encore opérationnel
+//// Parse the Data
+d3.csv("data/DATA_LSTUP09_TOP15.csv", function(data) {
 
-//LOAD ONClick BUTTON FUNCTION : en cours
+  // X axis
+  x.domain(data.map(function(d) { return d.substance; }))
+  xAxis.transition()
+    .duration(1000)
+    .call(d3.axisBottom(x))
+
+  // Add Y axis
+  y.domain([0, d3.max(data, function(d) { return +d[date] }) ]);
+  yAxis.transition()
+    .duration(1000)
+    .call(d3.axisLeft(y));
+
+  // variable u: map data to existing bars
+  const update = svg.selectAll("rect")
+    .data(data)
+
+  // update bars
+  update
+    .enter()
+    .append("rect")
+    .merge(update)
+    .transition()
+    .duration(1000)
+      .attr("x", function(d) { return x(d.substance); })
+      .attr("y", function(d) { return y(d[date]); })
+      .attr("width", x.bandwidth())
+      .attr("height", function(d) { return height - y(d[date]); })
+      .attr("fill", "#69b3a2")
+})
+
+
+// Initialize plot
+changeDate('date_2009')

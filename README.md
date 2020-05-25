@@ -32,8 +32,8 @@ Avril : Recherche idées
 
 23.05 : comprendre fonctionnement bouton + voir si possible d'afficher le "total" en haut ( pas dans graphique)
 
-24.05 : Pas fini, continuer + regarder example fini prof
+24.05 : Pas fini, continuer + regarder exemple fini prof
 
-25.05 : PAs fini , continuer + Regarder correction prof ( -> script main ) 
+25.05 : Regardé correction prof, essai de rendre la page + esthétique -> dm : comprendre boutons
 
 26.05 - 30.05 : Comprendre fonctionnement bouton + choix utilisation csv ( 1 csv avec tout ou 1 csv par année)

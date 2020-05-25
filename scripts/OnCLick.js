@@ -23,3 +23,29 @@ function changeDate(date_2009){
   function changeDate(date_2019){}
   
   
+
+  
+
+
+//LOAD ONClick BUTTON FUNCTION : en cours
+// A function that create / update the plot for a given variable:
+
+const button = d3.select("body")
+.append("div")
+.attr("class", "changeDate")
+.selectAll("div")
+.data(date)
+.enter()
+.append("div")
+.text(function(d) {
+  return d;
+})
+buttons.on("click", function(d) { /// effet lors de du click sur le bouton
+d3.select(this)
+.transition()
+.duration(500)
+.style("background", "LightBlue")
+.style("color", "White");
+
+
+})
