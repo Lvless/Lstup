@@ -36,4 +36,11 @@ Avril : Recherche idées
 
 25.05 : Regardé correction prof, essai de rendre la page + esthétique -> dm : comprendre boutons
 
-26.05 - 30.05 : Comprendre fonctionnement bouton + choix utilisation csv ( 1 csv avec tout ou 1 csv par année)
+
+TO DO :
+26.05 - 07.06 : 
+- Comprendre fonctionnement bouton
+- rendre boutons fonctionnels
+- choix utilisation csv ( 1 csv avec tout ou 1 csv par année)
+- afficher total chaque année cliquée
+- voir esthétisme page
