@@ -39,8 +39,9 @@ Avril : Recherche idées
 
 TO DO :
 26.05 - 07.06 : 
-- Comprendre fonctionnement bouton
-- rendre boutons fonctionnels
+- Comprendre fonctionnement bouton/SLIDER -> vidéo 
+- rendre SLIDER fonctionnel
 - choix utilisation csv ( 1 csv avec tout ou 1 csv par année)
 - afficher total chaque année cliquée
-- voir esthétisme page
+- faire des transitions lors du changement de date ( la collone/barre redescend etc)
+- voir esthétisme page (changer charactères/police etc)
