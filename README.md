@@ -39,9 +39,10 @@ Avril : Recherche idées
 
 TO DO :
 26.05 - 07.06 : 
+- comprendre comment rafraichir les données (avec les fonctions ) 
 - Comprendre fonctionnement bouton/SLIDER -> vidéo 
 - rendre SLIDER fonctionnel
-- choix utilisation csv ( 1 csv avec tout ou 1 csv par année)
 - afficher total chaque année cliquée
 - faire des transitions lors du changement de date ( la collone/barre redescend etc)
 - voir esthétisme page (changer charactères/police etc)
+- faire GitHub pages (vidéo s10)
