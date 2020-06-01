@@ -9,27 +9,22 @@
 
 </head> 
 <body>
-    <h1>INFRACTION A LA LSTUP DE 2009 A 2019:<p style="color:#FF0000">TOP 10</p> </h1>
-        <h3>Illustration des substances consommées en :    
-    <!-- Buttons pour changer date --> 
-    <button onclick="changeDate('date_2009')"> 2009 </button>
-    <button onclick="changeDate('date_2010')"> 2010 </button>
-    <button onclick="changeDate('date_2011')"> 2011 </button>
-    <button onclick="changeDate('date_2012')"> 2012 </button>
-    <button onclick="changeDate('date_2013')"> 2013 </button>
-    <button onclick="changeDate('date_2014')"> 2014 </button>
-    <button onclick="changeDate('date_2015')"> 2015 </button>
-    <button onclick="changeDate('date_2016')"> 2016 </button>
-    <button onclick="changeDate('date_2017')"> 2017 </button>
-    <button onclick="changeDate('date_2018')"> 2018 </button>
-    <button onclick="changeDate('date_2019')"> 2019 </button>
-</h3>
-   
-    <br />
-    <br />
-
+    <h1>INFRACTION A LA LSTUP DE 2009 A 2019:<p style="color:#FF0000">TOP 15</p> </h1>
+        
+    <div class="maViz">
+        <h3>Illustration des substances consommées en <span class="current_date">2019</span> </h3>  
+        <!-- Slider pour changer date --> 
+<br />
+             <div>
+                <label for="date">Choix année: </label>
+                <input type="range" min=2009 max=2019 step=1 id="date" value=2019 oninput="selected_date.value = date.value">
+                <output name="selected_date" id="selected_date">2019</output>
+            </div>
+    
+ <br />
+    </div>
     <!-- place du graphique-->
-    <div id="maViz"></div>   
+      
 
     <!-- D3-->
     <script src="https://d3js.org/d3.v5.min.js"></script>

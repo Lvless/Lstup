@@ -36,8 +36,11 @@ Avril : Recherche idées
 
 25.05 : Regardé correction prof, essai de rendre la page + esthétique -> dm : comprendre boutons
 
+29 + 30.5 + 1.6 : Essai refactoring script ( inspiration tuto prof) -> ERREUR : Uncaught TypeError: Cannot read property 'selectAll' of undefined, pareil avec map
 
-TO DO :
+
+
+TO DO (20% FINI):
 26.05 - 07.06 : 
 - comprendre comment rafraichir les données (avec les fonctions ) 
 - Comprendre fonctionnement bouton/SLIDER -> vidéo 
