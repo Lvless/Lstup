@@ -1,6 +1,6 @@
 # Lstup : Loi sur les stupéfiants (LStup): Infractions de consommation pour 15 substances
 
-Projet pour le cours de visualisation des données 2020:
+Projet pour le cours de visualisation des données 2020: https://lvless.github.io/Lstup/
 
 ---
 Loi sur les stupéfiants (LStup): Infractions de consommation pour 15 substances (entre 2009 et 2019):
