@@ -3,6 +3,8 @@
 //30/5 TEST DIFFERENTES COMBINAISONS DU CODES ( inspiration prof etc)
 //1/6 : Essai resoudre  ERREUR : Uncaught TypeError: Cannot read property 'selectAll' of undefined, pareil avec map 
 //			-> lstupData et barres is undefined -> PK ?!
+//4/6 -> essai deplacer setupLstup dans onDataLoaded -> axe affiché mais pas les barres
+//			-> Solution : d.date === currentDate.toString()
 
 // Paramètres des visualisations
 const margin = {top: 40, right: 20, bottom: 100, left: 100}; // marge
@@ -27,11 +29,12 @@ let echelleY;
 let echelleCouleur; // pannel de couleurs
 let trans; // transition
 
+
 ///////////////////////////////////
 function setup() { //fonction qui va demarrer le script ->ordre : chargement données -> mise en place de la visualisation
 	loadData();
 
-	setupLstup();
+
 }
 
 
@@ -42,7 +45,7 @@ function setup() { //fonction qui va demarrer le script ->ordre : chargement don
 ///////////////////////////////////
 //Fonction de chargement des données -> PROMISE ->.then on Data loaded
 function loadData() {
-	d3.dsv(',', 'data/DATA_LSTUP09-19_TOP15.csv', function (d) {
+	d3.csv('data/DATA_LSTUP09-19_TOP15.csv', function (d) {
 		return {
 			date: d.date,
 			substance: d.substance,
@@ -56,7 +59,7 @@ function loadData() {
 function onDataLoaded(data) {
 
 	lstupData = data; // données reçues sont injectées dans la variable lstupData
-
+	setupLstup()
 	graphLstup(2019); // données injectées dans la visualisation, 1 parametre
 }
 
@@ -108,14 +111,14 @@ function setupLstup() {
 		.attr("transform", "rotate(45)")
 		.style("text-anchor", "start")
 
-		.call(g => g.select('.domain').remove()); 
+		//.call(g => g.select('.domain').remove()); 
 
 	// Création de l'axe vertical
 	svg.append('g')
 		.attr('tranform', `translate(0, ${margin.left}, 0)`)
 		.call(d3.axisLeft(echelleY))
 		
-		.call(g => g.select('.domain').remove());
+		//.call(g => g.select('.domain').remove());
 
 	//slider
 	d3.select('#date').on('input', function() {
@@ -131,7 +134,7 @@ function setupLstup() {
 function graphLstup(date) {
 
 	// Filtrer les données pour isoler l'année choisie
-	const dataFiltres = lstupData.filter(d => d.date === currentDate);
+	const dataFiltres = lstupData.filter(d => d.date === currentDate.toString());
 
 	// Barres
 	barres.selectAll('rect') //selectionne tous les rectangles DOM
@@ -148,15 +151,15 @@ function graphLstup(date) {
 
 	// Titres
 	titres.selectAll('text')
-			.data(dataFiltres)
-			.join('text')
-				.attr('dy', '0.35em')
-				.attr('dx', `${echelleX.bandwidth() / 2}`)
-				.attr('x', d => echelleX(d.substance)) // affiche les valeurs au dessus des barres
-				.attr('y', d => echelleY(d.valeur)) // affiche les valeurs au dessus des barres
-				.style('font-size', '12px')
-				.text(d => d.valeur)
-				.attr('transform', d => `rotate(-45 ${echelleX(d.substance)} ${echelleY(d.valeur)})`); // rotation du texte ici
+		.data(dataFiltres)
+		.join('text')
+			.attr('dy', '0.35em')
+			.attr('dx', `${echelleX.bandwidth() / 2}`)
+			.attr('x', d => echelleX(d.substance)) // affiche les valeurs au dessus des barres
+			.attr('y', d => echelleY(d.valeur)) // affiche les valeurs au dessus des barres
+			.style('font-size', '12px')
+			.text(d => d.valeur)
+			.attr('transform', d => `rotate(-45 ${echelleX(d.substance)} ${echelleY(d.valeur)})`); // rotation du texte ici
 
 
 }

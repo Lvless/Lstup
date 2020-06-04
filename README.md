@@ -38,17 +38,18 @@ Avril : Recherche idées
 
 29 + 30.5 + 1.6 : Essai refactoring script ( inspiration tuto prof) -> ERREUR : Uncaught TypeError: Cannot read property 'selectAll' of undefined, pareil avec map
 
-4/6 -> essai deplacer lstupData dans onDataLoaded -> axe affiché mais pas les barres
-- Problème encore avec l'axe des valeurs
+4/6 -> essai deplacer setupLstup dans onDataLoaded -> axe affiché mais pas les barres
+- Problème encore avec l'axe des valeurs -> solution: d.date === currentDate.toString()
 
-
-
-TO DO (20% FINI):
-26.05 - 07.06 : 
-- comprendre comment rafraichir les données (avec les fonctions ) 
-- Comprendre fonctionnement bouton/SLIDER -> vidéo 
-- rendre SLIDER fonctionnel
-- afficher total chaque année cliquée
+4.6 - 7.6 : paufiner:
+- afficher total chaque année cliquée 
 - faire des transitions lors du changement de date ( la collone/barre redescend etc)
 - voir esthétisme page (changer charactères/police etc)
 - faire GitHub pages (vidéo s10)
+
+
+TO DO (70% FINI):
+26.05 - 07.06 : 
+- comprendre comment rafraichir les données (avec les fonctions ) -> ok
+- Comprendre fonctionnement bouton/SLIDER -> vidéo -> ok
+- rendre SLIDER fonctionnel -> ok
