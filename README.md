@@ -38,6 +38,9 @@ Avril : Recherche idées
 
 29 + 30.5 + 1.6 : Essai refactoring script ( inspiration tuto prof) -> ERREUR : Uncaught TypeError: Cannot read property 'selectAll' of undefined, pareil avec map
 
+4/6 -> essai deplacer lstupData dans onDataLoaded -> axe affiché mais pas les barres
+- Problème encore avec l'axe des valeurs
+
 
 
 TO DO (20% FINI):
