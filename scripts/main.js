@@ -126,6 +126,8 @@ function setupLstup() {
 		currentDate = parseInt(date)
 		d3.select('.current_date').text(currentDate)
 		graphLstup();
+
+	
 	})
 }
 
