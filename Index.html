@@ -7,35 +7,33 @@
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/main.css">
 
+    <h1>INFRACTION A LA LSTUP DE 2009 A 2019: <span style="color: red;">TOP 15</span></h1>
+
 </head> 
 <body>
-    <h1>INFRACTION A LA LSTUP DE 2009 A 2019:<p style="color:#FF0000">TOP 15</p> </h1>
-        
-    <div class="maViz">
-        <h3>Illustration des substances consommées en <span class="current_date">2019</span> </h3>  
-        <!-- Slider pour changer date --> 
-
-<br />
-             <div>
+                  
+    <div class="slider">
+        <h2>Illustration des substances consommées en <span class="current_date">2019</span> </h2>
+             <h3>
+                 <br/><!-- Slider pour changer date -->
                 <label for="date">Choix année: </label>
                 <input type="range" min=2009 max=2019 step=1 id="date" value=2019 oninput="selected_date.value = date.value">
                 <output name="selected_date" id="selected_date">2019</output>
                 <!--<output name="totalChange" id="totalChange">Total : 34518</output> A PAUFINER-->
-
-            </div>
-    
- <br />
+             </h3> 
     </div>
-    <!-- place du graphique-->
-      
+    <div class="maViz">
+        <div id = "maViz">
 
     <!-- D3-->
     <script src="https://d3js.org/d3.v5.min.js"></script>
     
     <!-- Script-->
     <script src="scripts/main.js"></script>
+     
+</div>
 
-    <br />
+
     <br />
     <br />
     <a href="https://www.bfs.admin.ch/bfs/fr/home.assetdetail.11147626.html">Source: OFS </a>

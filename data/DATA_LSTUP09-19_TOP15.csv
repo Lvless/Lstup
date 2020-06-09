@@ -1,5 +1,4 @@
 date,substance,valeur
-2009,Total,43272
 2009,Amphétamines,182
 2009,Crack,13
 2009,Ecstasy,98
@@ -15,7 +14,7 @@ date,substance,valeur
 2009,Opium,3
 2009,LSD,23
 2009,GHB/GBL,66
-2009,Plusieurs 1),7875
+2009,Plusieurs,7875
 2010,Amphétamines,251
 2010,Crack,18
 2010,Ecstasy,76
@@ -31,7 +30,7 @@ date,substance,valeur
 2010,Opium,4
 2010,LSD,25
 2010,GHB/GBL,58
-2010,Plusieurs 1),7540
+2010,Plusieurs,7540
 2011,Amphétamines,256
 2011,Crack,2
 2011,Ecstasy,130
@@ -47,8 +46,7 @@ date,substance,valeur
 2011,Opium,4
 2011,LSD,21
 2011,GHB/GBL,120
-2011,Plusieurs 1),6723
-2012,Total,44789
+2011,Plusieurs,6723
 2012,Amphétamines,295
 2012,Crack,4
 2012,Ecstasy,176
@@ -64,8 +62,7 @@ date,substance,valeur
 2012,Opium,3
 2012,LSD,17
 2012,GHB/GBL,59
-2012,Plusieurs 1),6897
-2013,Total,45905
+2012,Plusieurs,6897
 2013,Amphétamines,413
 2013,Crack,8
 2013,Ecstasy,178
@@ -82,8 +79,7 @@ date,substance,valeur
 2013,Opium,5
 2013,LSD,33
 2013,GHB/GBL,38
-2013,Plusieurs 1),7414
-2014,Total,37602
+2013,Plusieurs,7414
 2014,Amphétamines,411
 2014,Crack,13
 2014,Ecstasy,212
@@ -100,8 +96,7 @@ date,substance,valeur
 2014,Opium,7
 2014,LSD,27
 2014,GHB/GBL,27
-2014,Plusieurs 1),7220
-2015,Total,37799
+2014,Plusieurs,7220
 2015,Amphétamines,509
 2015,Crack,2
 2015,Ecstasy,207
@@ -118,8 +113,7 @@ date,substance,valeur
 2015,Opium,4
 2015,LSD,50
 2015,GHB/GBL,29
-2015,Plusieurs 1),7292
-2016,Total,38519
+2015,Plusieurs,7292
 2016,Amphétamines,516
 2016,Crack,21
 2016,Ecstasy,260
@@ -136,8 +130,7 @@ date,substance,valeur
 2016,Opium,3
 2016,LSD,31
 2016,GHB/GBL,41
-2016,Plusieurs 1),7826
-2017,Total,37488
+2016,Plusieurs,7826
 2017,Amphétamines,445
 2017,Crack,15
 2017,Ecstasy,229
@@ -154,8 +147,7 @@ date,substance,valeur
 2017,Opium,2
 2017,LSD,36
 2017,GHB/GBL,42
-2017,Plusieurs 1),7878
-2018,Total,35728
+2017,Plusieurs,7878
 2018,Amphétamines,427
 2018,Crack,23
 2018,Ecstasy,244
@@ -172,8 +164,7 @@ date,substance,valeur
 2018,Opium,14
 2018,LSD,39
 2018,GHB/GBL,36
-2018,Plusieurs 1),8064
-2019,Total,34518
+2018,Plusieurs,8064
 2019,Amphétamines,381
 2019,Crack,30
 2019,Ecstasy,263
@@ -189,5 +180,5 @@ date,substance,valeur
 2019,Opium,6
 2019,LSD,62
 2019,GHB/GBL,48
-2019,Plusieurs 1),8327
+2019,Plusieurs,8327
 2019,Marijuana,13243

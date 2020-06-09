@@ -7,9 +7,9 @@
 //			-> Solution : d.date === currentDate.toString()
 
 // Paramètres des visualisations
-const margin = {top: 50, right: 0, bottom: 0, left: 100}; // marge
-const width = 760 ; // largeur
-const height = 500 ; // hauteur
+const margin = {top: 0, right: 20, bottom: 100, left: 100}; // marge
+const width = 760 - margin.left - margin.right; // largeur
+const height = 900 - margin.top - margin.bottom; // hauteur
 const color = '#9DC209'; // couleur pistache
 
 /////////////////////////////
@@ -21,8 +21,7 @@ let currentDate = 2019;
 
 // Groupe D3
 let barres;
-let titres1;
-let titres2;
+let titres;
 
 // Echelles D3
 let echelleX;
@@ -71,28 +70,24 @@ function setupLstup() {
 	// Création CANEVAS SVG + ajout dans le "body" de la page HTML
 	const svg = d3.select(".maViz") // nom de ma visualisation sur index.html
 				.append("svg")
-				.attr("width", width)
-				.attr("height", height)
+				.attr("width", width + margin.left + margin.right)
+				.attr("height", height + margin.top + margin.bottom)
 				.attr('style', 'font: 10px sans-serif') // AJOUT (29/5)
 
-	// Création de l'échelle horizontale X (valeurs)
-	echelleX = d3.scaleLinear()
-				.domain([0, d3.max(lstupData, d => d.valeur)]) // max valeur selon doc csv
-				.range([margin.left, width - margin.right]) // intervale de sortie de l'échelle. Le min c'est la hauteur, le max c'est 0, car vertical
-				.interpolate(d3.interpolateRound); // AJOUT (29/5)
 
-	// Création de l'échelle verticale Y ( titres/barres)
-	echelleY = d3.scaleBand() //échelle ordinnale à bandes 
-				.domain(lstupData.map(d => d.substance))
-				.range([margin.top, height- margin.bottom]) // cela permet d'arranger les substances dans la largeur (-marge à droite)
-				.padding(0.05) //marge entre les barres
+
+	// Création de l'échelle horizontale X
+	echelleX = d3.scaleBand() //échelle ordinnale à bandes 
+				.domain(lstupData.map(d => d.substance))  
+				.range([0, width - margin.right]) // cela permet d'arranger les substances dans la largeur (-marge à droite)
+				.padding(0.1) //marge entre les barres
 				.round(true);
 
-
-
-
-
-
+	// Création de l'échelle verticale Y
+	echelleY = d3.scaleLinear()
+				.domain([0, d3.max(lstupData, d => d.valeur)]) // max valeur selon doc csv
+				.range([ height, 0 ]) // intervale de sortie de l'échelle. Le min c'est la hauteur, le max c'est 0, car vertical
+				.interpolate(d3.interpolateRound); // AJOUT (29/5)
 
 	// Création échelle de couleur
 	echelleCouleur = d3.scaleQuantile()
@@ -103,29 +98,28 @@ function setupLstup() {
 	barres = svg.append('g');
 	titres = svg.append('g')
 				.style('fill', 'black')
-				.style("text-anchor", "start") // ancrage du text sur la fin
-				.attr('transform', `translate(-6, ${echelleY.bandwidth() / 2})`) //hauteur de chaque bande
+				.style("text-anchor", "start");
 
 
-
-	//Création de l'axe horizontal + placement valeurs de l'échelle
+	// Création de l'axe horizontal + placement du texte
 	svg.append('g')
-		.attr('transform', `translate(0, ${margin.bottom})`)
-		.call(d3.axisBottom(echelleX)) //placement axe X ici avec methode "call" + valeurs
-		.call(g => g.select('.domain').remove()); 
-
-	// // Création de l'axe vertical + placement du texte de l'échelle
-	svg.append('g')
-		.attr('tranform', `translate(0, ${margin.left}, 0)`)
-		.call(d3.axisLeft(echelleY))
+		.attr("transform", "translate(0," + height + ")")
+		.call(d3.axisBottom(echelleX)) //placement axe X ici avec methode "call"
+		//.call(g => g.select('.domain').remove())
 		.selectAll('text')
 		.attr("y", 9)
 		.attr("x", 9)
 		.attr("dy", ".35em")
-		.attr("transform", "rotate(-45)")
+		.attr("transform", "rotate(45)")
 		.style("text-anchor", "start")
 
-		.call(g => g.select('.domain').remove()); // enlève ligne
+
+
+	// Création de l'axe vertical
+	svg.append('g')
+		.attr('tranform', `translate(0, ${margin.left}, 0)`)
+		.call(d3.axisLeft(echelleY))
+		.call(g => g.select('.domain').remove());
 
 	//slider
 	d3.select('#date').on('input', function() {
@@ -149,10 +143,10 @@ function graphLstup(date) {
 	barres.selectAll('rect') //selectionne tous les rectangles DOM
 		.data(dataFiltres) // données lstup
 		.join('rect') // fait enter, update, remove en 1 fois
-			.attr('width', d => echelleX(d.valeur) - echelleX(0)) // largeur des barres suivant echelle X
-			.attr("height", echelleY.bandwidth()) // hauteur des barres suivant echelle y
-			.attr("x", echelleX(0))
-			.attr("y", d => echelleY(d.substance)) // création des barres en fonction de la substance
+			.attr('width', echelleX.bandwidth()) // largeur des barres suivant echelle X
+			.attr("height", d => echelleY(0) - echelleY(d.valeur)) // hauteur des barres suivant echelle y
+			.attr("x", d => echelleX(d.substance)) // création des barres en fonction de la substance
+			.attr("y", d => echelleY(d.valeur))
 			.attr("fill", d => echelleCouleur(d.valeur));
 
 	trans = d3.transition()
@@ -162,17 +156,14 @@ function graphLstup(date) {
 	titres.selectAll('text')
 		.data(dataFiltres)
 		.join('text')
-			.attr('x', d => echelleX(d.valeur)) // affiche les valeurs au dessus des barres
-			.attr('y', d => echelleY(d.substance))// affiche les valeurs au dessus des barres
-			.text(d => d.valeur)
-			.attr('dy', '0.35em') // placement texte
+			.attr('dy', '0.30em')
 			.attr('dx', `${echelleX.bandwidth() / 2}`)
+			.attr('x', d => echelleX(d.substance)) // affiche les valeurs au dessus des barres
+			.attr('y', d => echelleY(d.valeur)) // affiche les valeurs au dessus des barres
 			.style('font-size', '12px')
-			.attr('transform', d => `rotate(-30 ${echelleY(d.substance)} ${echelleX(d.valeur)})`); // rotation du texte ici
-			
+			.text(d => d.valeur)
+			.attr('transform', d => `rotate(-45 ${echelleX(d.substance)} ${echelleY(d.valeur)})`); // rotation du texte ici
 
-	
-	
 
 }
 
