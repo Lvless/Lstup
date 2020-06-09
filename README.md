@@ -31,11 +31,13 @@ Avril : Recherche idées
         - comprendre comment rafraichir les données (avec les fonctions ) -> ok
         - Comprendre fonctionnement bouton/SLIDER -> vidéo -> ok
         - rendre SLIDER fonctionnel -> ok
+        - faire des transitions lors du changement de date ( la collone/barre redescend etc)-> ok
 8.06 - 9.06 : changement format graphique car données trop rognées si graphique vertical
 
 TO DO (70% FINI):
-26.05 - 10.06 : 
-- afficher total chaque année cliquée 
-- faire des transitions lors du changement de date ( la collone/barre redescend etc)
+10.06 : 
+- une couleur par barre
+- bon placement du texte
 - voir esthétisme page (changer charactères/police etc)
+- afficher total chaque année cliquée (?)
 - faire GitHub pages (vidéo s10) -> pour le moment ça bug

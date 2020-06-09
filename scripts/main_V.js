@@ -1,10 +1,4 @@
-//CODE EN COURS (27/5)
-
-//30/5 TEST DIFFERENTES COMBINAISONS DU CODES ( inspiration prof etc)
-//1/6 : Essai resoudre  ERREUR : Uncaught TypeError: Cannot read property 'selectAll' of undefined, pareil avec map 
-//			-> lstupData et barres is undefined -> PK ?!
-//4/6 -> essai deplacer setupLstup dans onDataLoaded -> axe affiché mais pas les barres
-//			-> Solution : d.date === currentDate.toString()
+//CODE GRAPH VERTICAL
 
 // Paramètres des visualisations
 const margin = {top: 0, right: 20, bottom: 100, left: 100}; // marge
