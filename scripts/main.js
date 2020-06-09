@@ -73,7 +73,6 @@ function setupLstup() {
 	echelleX = d3.scaleLinear()
 				.domain([0, d3.max(lstupData, d => d.valeur)]) // max valeur selon doc csv
 				.range([margin.left, width - margin.right]) // intervale de sortie de l'échelle. Le min c'est la hauteur, le max c'est 0, car vertical
-				.interpolate(d3.interpolateRound) // AJOUT (29/5)
 
 
 
@@ -85,8 +84,8 @@ function setupLstup() {
 				.round(true);
 
 
-	// Création échelle de couleur
-	echelleCouleur = d3.scaleSequential()
+	// Création échelle de couleur 
+	echelleCouleur = d3.scaleQuantile()
 					.domain([0, d3.max(lstupData, d => d.valeur)])
                     .range(['#ffc388','#ffb269','#ffa15e','#fd8f5b','#f97d5a','#f26c58','#e95b56','#e04b51','#d53a4b','#c92c42','#bb1d36','#ac0f29','#9c0418','#8b0000']);
 
@@ -146,7 +145,7 @@ function graphLstup(date) {
 			.attr("x", echelleX(0))
 			.attr("y", d => echelleY(d.substance)) // création des barres en fonction de la substance
 			.attr("fill", d => echelleCouleur(d.valeur))
-			.style("opacity", 0.5)
+			.style("opacity", 0.6) // transparence
 
 	trans = d3.transition()
 			.duration(1500);

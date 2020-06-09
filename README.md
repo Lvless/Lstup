@@ -36,7 +36,7 @@ Avril : Recherche idées
 
 TO DO (70% FINI):
 10.06 : 
-- une couleur par barre
+- couleur selon intensité - ok
 - bon placement du texte
 - voir esthétisme page (changer charactères/police etc)
 - afficher total chaque année cliquée (?)
