@@ -41,4 +41,5 @@ Avril : Recherche idées
 - afficher total chaque année cliquée (?)
 - faire GitHub pages (vidéo s10) -> pour le moment ça bug
 
+
 ---75% FINI---
