@@ -39,7 +39,9 @@ Avril : Recherche idées
 - couleur selon intensité -> ok
 - bon placement du texte -> ok
 - voir esthétisme page (changer charactères/police etc) - Ok
-- faire GitHub pages (vidéo s10) -> pour le moment ça bug -> OK : index.html était écrit avec une majuscule ce qui à provoqué l'erreur
-- afficher total chaque année cliquée (?)
+- faire GitHub pages (vidéo s10): bug -> OK : index.html était écrit avec une majuscule ce qui à provoqué l'erreur
+
+11.06:
+
 
 ---80% FINI---

@@ -136,17 +136,22 @@ function setupLstup() {
 
 	//slider
 	d3.select('#date').on('input', function() {
-		const date = d3.event.target.value;
+		const date = d3.event.target.value
 		currentDate = parseInt(date)
 		d3.select('.current_date').text(currentDate)
-		totalData = parseInt(totalData)
-		d3.select('totalYear').text(totalData)
-		graphLstup();
 	})
-//// ICI -> ESSAI AFFICHER TOTAL
-
+	//d3.select('#date').on('input', function() {
+	//	const total = 
+	//	d3.event.target.value
+	//	total_Y = parseInt(totalData)
+	//	d3.select('.totalYear').text(Total_Y)
+		
+	//})
+	graphLstup();
 
 }
+//// ICI -> ESSAI AFFICHER TOTAL
+
 
 ////////////////---FONCTION D'AFFICHAGE/RAFRAICHISSEMENT---///////////////////////////////////////////
 // graphLstup -> permet le "rafraichissement des données lors du input"
