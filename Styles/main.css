@@ -1,11 +1,13 @@
 
+
 h1{ 
     text-align: center;
     font-size: 20pt;
     font-weight: 1000;
 }
-h2{ text-align: center }
-h3{ text-align: center}
+
+body{ text-align: center }
+
 
 .maViz {
     width: 100%;

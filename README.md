@@ -34,10 +34,11 @@ Avril : Recherche idées
         - faire des transitions lors du changement de date ( la collone/barre redescend etc)-> ok
 8.06 - 9.06 : changement format graphique car données trop rognées si graphique vertical
 
-TO DO (70% FINI):
 10.06 : 
-- couleur selon intensité - ok
-- bon placement du texte
-- voir esthétisme page (changer charactères/police etc)
+- couleur selon intensité -> ok
+- bon placement du texte -> ok
+- voir esthétisme page (changer charactères/police etc) - Ok
 - afficher total chaque année cliquée (?)
 - faire GitHub pages (vidéo s10) -> pour le moment ça bug
+
+---75% FINI---
