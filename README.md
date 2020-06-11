@@ -17,6 +17,7 @@ ________________________________________________________________________________
 Je joins ici mon journal (LOG) recensant les étapes de la réalisation et les difficultés rencontrés:
 
 Avril : Recherche idées
+Fin avril - debut mai : conversion fichier excell en csv, preparation csv, selection de données pertinentes, retravaillement du fichier
 5.05 : début conception, difficultés ajout boutons sur page HTML 
 6.05 : Ajout boutons. Recherche bon modèle pour graphique
 7.05 : Difficulté ajout données
