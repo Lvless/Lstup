@@ -8,8 +8,8 @@ Loi sur les stupéfiants (LStup): Infractions de consommation pour 15 substances
 
 Données trouvées sur le site de l'OFS (https://www.bfs.admin.ch/bfs/fr/home.assetdetail.11147626.html )
 
-Ce graphique affiche le nombre de cas de consommation rapportées à l'OFSP par année et par substance.
-J'ai reduit le nombre total à 15 substances qui ressortaient des fichiers de l'OFSP pour bien illustrer le "top 15" des substances "les plus consommées de 2009 à 2019" ( du moins celles qui ont fait l'objet d'une poursuite judiciaire)
+Ce graphique affiche le nombre de cas de consommation rapportées à l'OFS par année et par substance.
+J'ai reduit le nombre total à 15 substances qui ressortaient des fichiers de l'OFS pour bien illustrer le "top 15" des substances "les plus consommées de 2009 à 2019" ( du moins celles qui ont fait l'objet d'une poursuite judiciaire)
 
 Cela permet de visualiser que des substances comme le marijuana sont largement au dessus des autres et également l'apparition, dès 2013, de substances de synthèse.
 
