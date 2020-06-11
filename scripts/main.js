@@ -23,20 +23,7 @@ let echelleY;
 let echelleCouleur; // pannel de couleurs
 let trans; // transition
 
-//Données TOTAL
-let totalData = [
-{date:2009, Total:43272},
-{date:2010, Total:44071},
-{date:2011, Total:43711},
-{date:2012, Total:44789},
-{date:2013, Total:45905},
-{date:2014, Total:37602},
-{date:2015, Total:37799},
-{date:2016, Total:38519},
-{date:2017, Total:37488},
-{date:2018, Total:35728},
-{date:2019, Total:34518}
-];
+
 ///////////////////////////////////
 function setup() { //fonction qui va demarrer le script ->ordre : chargement données -> mise en place de la visualisation
 	loadData();
@@ -78,13 +65,13 @@ function setupLstup() {
 	const svg = d3.select(".maViz") // nom de ma visualisation sur index.html
 				.append("svg")
 				.attr("width", width + margin.left + margin.right)
-				.attr("height", height + margin.top + margin.bottom)
+				.attr("height", height + margin.top + margin.bottom);
 
 
 	// Création de l'échelle horizontale X (valeurs) [---]
 	echelleX = d3.scaleLinear()
 				.domain([0, d3.max(lstupData, d => d.valeur)]) // max valeur selon doc csv
-				.range([margin.left, width - margin.right]) 
+				.range([margin.left, width - margin.right]);
 
 
 
@@ -97,7 +84,7 @@ function setupLstup() {
 
 
 	// Création échelle de couleur 
-	echelleCouleur = d3.scaleQuantile()
+	echelleCouleur = d3.scaleQuantile() //échelle de couleurs changeant d'intensité selon la valeur
 					.domain([0, d3.max(lstupData, d => d.valeur)])
                     .range(['#ffc388','#ffb269','#ffa15e','#fd8f5b','#f97d5a','#f26c58','#e95b56','#e04b51','#d53a4b','#c92c42','#bb1d36','#ac0f29','#9c0418','#8b0000']);
 
@@ -107,7 +94,7 @@ function setupLstup() {
 	titres = svg.append('g')
 				.style('fill', 'black')
 				.style("text-anchor", "start") // ancrage du text-valeur 
-				.attr('transform', `translate(6, ${echelleY.bandwidth() / 2})`) //placement text-valeur
+				.attr('transform', `translate(6, ${echelleY.bandwidth() / 2})`); //placement text-valeur
 
 
 
@@ -117,7 +104,7 @@ function setupLstup() {
 		.call(d3.axisBottom(echelleX)//placement axe X ici avec methode "call" + valeurs
 			.tickSize(-400)) //prolongement des ticks
 			.attr("opacity",".10") //transparence des ticks
-		.call(g => g.select('.domain').remove)
+		.call(g => g.select('.domain').remove);
 	
 
 	// // Création de l'axe vertical + placement du texte de l'échelle
@@ -129,29 +116,21 @@ function setupLstup() {
 			.attr("y", 45) // alignement avec les barres
 			.attr("x", 120) // placement axe x, pas trop collé aux barres
 			.attr("dy", ".30em")
-			.attr("transform", "rotate(-20)")
+			.attr("transform", "rotate(-20)") //rotatation des labels
 			.style("text-anchor", "end")
-			.style("font-weight","700")
+			.style("font-weight","700");
 		
 
 	//slider
 	d3.select('#date').on('input', function() {
-		const date = d3.event.target.value
+		const date = d3.event.target.value;
 		currentDate = parseInt(date)
 		d3.select('.current_date').text(currentDate)
+		graphLstup();
+
+	
 	})
-	//d3.select('#date').on('input', function() {
-	//	const total = 
-	//	d3.event.target.value
-	//	total_Y = parseInt(totalData)
-	//	d3.select('.totalYear').text(Total_Y)
-		
-	//})
-	graphLstup();
-
 }
-//// ICI -> ESSAI AFFICHER TOTAL
-
 
 ////////////////---FONCTION D'AFFICHAGE/RAFRAICHISSEMENT---///////////////////////////////////////////
 // graphLstup -> permet le "rafraichissement des données lors du input"
@@ -169,7 +148,7 @@ function graphLstup(date) {
 			.attr("x", echelleX(0))
 			.attr("y", d => echelleY(d.substance)) // création des barres en fonction de la substance
 			.attr("fill", d => echelleCouleur(d.valeur))
-			.style("opacity", 0.6) // transparence
+			.style("opacity", 0.6); // transparence
 
 	trans = d3.transition()
 			.duration(1500);
@@ -185,10 +164,6 @@ function graphLstup(date) {
 			.attr('dx', `${echelleX.bandwidth() / 2}`)
 			.style('font-size', '9px')
 			.attr('transform', d => `rotate(-30 ${echelleY(d.substance)} ${echelleX(d.valeur)})`); // rotation du texte ici
-			
-
-
-	
 
 }
 

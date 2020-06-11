@@ -33,15 +33,13 @@ Avril : Recherche idées
         - Comprendre fonctionnement bouton/SLIDER -> vidéo -> ok
         - rendre SLIDER fonctionnel -> ok
         - faire des transitions lors du changement de date ( la collone/barre redescend etc)-> ok
-8.06 - 9.06 : changement format graphique car données trop rognées si graphique vertical
+8.06 - 9.06 : changement total format du graphique car données trop rognées si graphique vertical
 
-10.06 : 
+10.06 + 11.06 : 
 - couleur selon intensité -> ok
 - bon placement du texte -> ok
 - voir esthétisme page (changer charactères/police etc) - Ok
 - faire GitHub pages (vidéo s10): bug -> OK : index.html était écrit avec une majuscule ce qui à provoqué l'erreur
+- paufinage -> ok
 
-11.06:
-
-
----80% FINI---
+---100% FINI---
