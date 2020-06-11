@@ -16,31 +16,30 @@ Cela permet de visualiser que des substances comme le marijuana sont largement a
 ________________________________________________________________________________________________
 Je joins ici mon journal (LOG) recensant les étapes de la réalisation et les difficultés rencontrés:
 
-Avril : Recherche idées
-Fin avril - debut mai : conversion fichier excell en csv, preparation csv, selection de données pertinentes, retravaillement du fichier
-5.05 : début conception, difficultés ajout boutons sur page HTML 
-6.05 : Ajout boutons. Recherche bon modèle pour graphique
-7.05 : Difficulté ajout données
-8.05 : Réussite ajout données
-11.05 : recherche bonne forme pour le graph
-12.05 : Difficulté bonne présentation données-> choix de selection certaines substances et leur évolution  de 2009 -2019
-15.05 + 17.05 : pas encore résolu
-10.05 - 23.05 : comprendre fonctionnement bouton + voir si possible d'afficher le "total" en haut ( pas dans graphique)
-24.05 - 25.05 : Regardé correction du professeur, essai de rendre la page + esthétique 
-29.05 + 30.5 + 1.6 : Essai refactoring script ( inspiration tuto prof) -> ERREUR : Uncaught TypeError: Cannot read property 'selectAll' of undefined, pareil avec map
-4.06 - 7.06 -> essai deplacer setupLstup dans onDataLoaded -> axe affiché mais pas les barres
+- Avril : Recherche idées
+- Fin avril - debut mai : conversion fichier excell en csv, preparation csv, selection de données pertinentes, retravaillement du fichier
+- 5.05 : début conception, difficultés ajout boutons sur page HTML 
+- 6.05 : Ajout boutons. Recherche bon modèle pour graphique
+- 7.05 : Difficulté ajout données
+- 8.05 : Réussite ajout données
+- 11.05 : recherche bonne forme pour le graph
+- 12.05 : Difficulté bonne présentation données-> choix de selection certaines substances et leur évolution  de 2009 -2019
+- 15.05 + 17.05 : pas encore résolu
+- 10.05 - 23.05 : comprendre fonctionnement bouton + voir si possible d'afficher le "total" en haut ( pas dans graphique)
+- 24.05 - 25.05 : Regardé correction du professeur, essai de rendre la page + esthétique 
+- 29.05 + 30.5 + 1.6 : Essai refactoring script ( inspiration tuto prof) -> ERREUR : Uncaught TypeError: Cannot read property 'selectAll' of undefined, pareil avec map
+- 4.06 - 7.06 -> essai deplacer setupLstup dans onDataLoaded -> axe affiché mais pas les barres
         - Problème encore avec l'axe des valeurs -> solution: d.date === currentDate.toString()
         - comprendre comment rafraichir les données (avec les fonctions ) -> ok
         - Comprendre fonctionnement bouton/SLIDER -> vidéo -> ok
         - rendre SLIDER fonctionnel -> ok
         - faire des transitions lors du changement de date ( la collone/barre redescend etc)-> ok
-8.06 - 9.06 : changement total format du graphique car données trop rognées si graphique vertical
-
-10.06 + 11.06 : 
-- couleur selon intensité -> ok
-- bon placement du texte -> ok
-- voir esthétisme page (changer charactères/police etc) - Ok
-- faire GitHub pages (vidéo s10): bug -> OK : index.html était écrit avec une majuscule ce qui à provoqué l'erreur
-- paufinage -> ok
+- 8.06 - 9.06 : changement total format du graphique car données trop rognées si graphique vertical
+- 10.06 + 11.06 : 
+        - couleur selon intensité -> ok
+        - bon placement du texte -> ok
+        - voir esthétisme page (changer charactères/police etc) - Ok
+        - faire GitHub pages (vidéo s10): bug -> OK : index.html était écrit avec une majuscule ce qui à provoqué l'erreur
+        - paufinage -> ok
 
 ---100% FINI---
